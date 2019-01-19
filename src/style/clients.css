@@ -1,0 +1,129 @@
+#clients {
+    padding: 50px;
+}
+
+#table-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-content: center;
+    padding: 4px;
+    height: 30px;
+    background-color: rgb(69, 108, 194);
+    box-shadow: 1px 2px 2px rgb(66, 65, 65);
+    margin-bottom: 3px;
+}
+
+#clientsFilter {
+    display: grid;
+    grid-template-columns: 2fr 2fr 7fr 1fr 1fr 1fr;
+    margin-bottom: 10px;
+    grid-template-areas: "i s . p c n";
+    height: 25px;
+}
+
+#pop-up-container {
+    background-color: rgba(0, 0, 0, 0.404);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#update {
+    text-align: center;
+    background-color: rgb(19, 18, 18);
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    padding: 10px;
+    color: rgb(190, 190, 190);
+    font-size: 120%
+}
+
+.close-popup {
+    display: grid;
+    align-content: center;
+    position: absolute;
+    padding-bottom: 2px;
+    width: 15px;
+    height: 15px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+#update input {
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.disable {
+    display: none;
+}
+
+.popup-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 20px 10px 20px;
+    align-content: center;
+    text-align: left;
+}
+
+.submit {
+    box-shadow: 1px 1px 2px rgb(2, 1, 24);
+    background-color: rgb(65, 86, 104);
+    margin: 15px 30%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.submit:active {
+    background-color: rgb(46, 66, 83);
+}
+
+.btn {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#p {
+    grid-area: p;
+}
+
+#n {
+    grid-area: n;
+}
+
+#current-page {
+    grid-area: c;
+}
+
+#text-input, #category-select {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid rgb(180, 178, 178);
+}
+
+#category-select {
+    margin-left: 5px;
+    grid-area: s;
+}
+
+#text-input {
+    padding-left: 5px;
+    grid-area: i;
+}
+
+.table-row {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-content: center;
+    border-bottom: 1px solid rgb(180, 178, 178);
+    padding: 10px;
+    cursor: pointer;
+}

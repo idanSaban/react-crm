@@ -1,0 +1,22 @@
+#navbar {
+    background-color: rgb(19, 18, 18);
+    height: 50px;
+}
+
+.nav-button {
+    color: white;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    float: left;
+    width: 100px;
+    height: 100%;
+}
+
+.nav-button:hover {
+    background-color: rgb(44, 44, 44);
+}
+
+.current-page {
+    background-color: rgb(44, 44, 44);
+}

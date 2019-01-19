@@ -1,0 +1,70 @@
+#badges {
+    padding: 0 25px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr)
+}
+
+.badge-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.badge {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    font-size: 200%;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    box-shadow: 1px 2px 2px rgb(63, 62, 62);
+}
+
+.badge-info {
+    font-size: 150%;
+}
+
+.badge-label {
+    display: grid;
+    align-content: center;
+    font-size: 70%;
+    font-weight: bold;
+}
+
+.info-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#new-client {
+    background-color: rgb(79, 155, 79);
+}
+
+#email-sent {
+    background-color: rgb(66, 127, 143);
+}
+
+#outstanding-client {
+    background-color: rgb(165, 42, 42);
+}
+
+#hottest-country {
+    background-color: rgb(255, 196, 0);
+}
+
+#charts {
+    display: grid;
+    grid-template-areas: "c c ." ". t t";
+    /* grid-template-columns: 1fr 1fr; */
+    padding: 50px;
+}
+
+#salesByCountry {
+    grid-area: c;
+}
+
+#​TopEmployees {
+    grid-area: t;
+}

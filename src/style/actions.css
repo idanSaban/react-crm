@@ -1,0 +1,5 @@
+#actions {
+    padding: 50px;
+    display: grid;
+    grid-template-areas: "." ".";
+}
