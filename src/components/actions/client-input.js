@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
 class ClientInput extends Component {
-
     inputHandler = e => {
-        this.props.inputHandler(e.target.value)
+        this.props.inputHandler(e)
     }
 
     render() {
         return (
             <div>
                 <span>Client: </span>
-                <input list="clients" id="clientInput" value={this.props.val} onChange={this.inputHandler} name="name" />
+                <input list="clients" id="clientInput" value={this.props.value} onChange={this.inputHandler} name="client" />
                 <datalist id="clients" >
 
                     {this.props.names.map(c => {

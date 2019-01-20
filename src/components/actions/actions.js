@@ -6,50 +6,81 @@ import ClientInput from './client-input';
 import Axios from 'axios';
 class Actions extends Component {
 
-    //     constructor() {
-    //         super()
-    //         this.state = {
-    //             data: [],
-    //             clientInput: "",
-    //             owner: "",
-    //             emailType: "",
-    //             sold: ""
+    constructor() {
+        super()
+        this.state = {
+            data: [],
+            client: "",
+            clientObj: {
+                emailType: "",
+                id: "",
+                name: "",
+                owner: "",
+                sold: false
+            }
 
-    //         }
-    //     }
-    //     updateInputHandler = (e) => {
-    //         this.setState({ [e.target.name]: e.target.value })
-    //     }
-    //     async componentDidMount() {
-    //         // const response = await this.getData()
-    //         const { data } = await Axios.get('http://localhost:4200/clients/actions')
-    //         this.setState({ data })
-    //     }
+        }
+    }
+    clientInputHandler = async e => {
+        const client = this.state.data.find(c => c.name === e.target.value)
+        if (client)
+        {
+            const { emailType, id, name, owner, sold } = client
+            await this.setState({
+                [e.target.name]: e.target.value,
+                emailType,
+                id,
+                name,
+                owner,
+                sold
+            })
+        } else
+        {
+            await this.setState({
+                [e.target.name]: e.target.value,
+                emailType: "",
+                id: "",
+                name: "",
+                owner: "",
+                sold: false
 
-    //     inputHandler = (val) => {
-    //         const client = this.state.data.find(c => c.name === this.state.clientInput)
-    //         client && this.setState({
-    //             clientInput: val,
-    //             owner: client.owner,
-    //             emailType: client.emailType,
-    //             sold: client.sold
-    //         })
-    //     }
-    //     // getOwnersList() {
-    //     //     const ownersObj = {}
-    //     //     this.state.data.forEach(c => ownersObj[c.owner] = true)
-    //     //     return Object.keys(ownersObj)
-    //     // }
-
-        render() {
-            return (
-                <div id="actions">
-    {/* //                 <ClientInput val={this.state.clientInput} inputHandler={this.inputHandler} names={this.state.data.map(c => { return { name: c.name, id: c.id } })} />
-    //                 <Update inputHandler={this.updateInputHandler} />
-    //                 <AddClient /> */}
-    //             </div>
-            )
+            })
         }
     }
 
-    export default Actions
+    inputHandler = e => this.setState({ [e.target.name]: e.target.value })
+    async componentDidMount() {
+        const { data } = await Axios.get('http://localhost:4200/clients/actions')
+        this.setState({ data })
+    }
+
+    getOwnersList() {
+        let owners = {}
+        this.state.data.forEach(c => owners[c.owner] = null)
+        return Object.keys(owners)
+    }
+    getEmailTypesList() {
+        let emailTypes = {}
+        this.state.data.forEach(c => emailTypes[c.emailType] = null)
+        return Object.keys(emailTypes).sort()
+    }
+
+    render() {
+        console.log(this.getEmailTypesList())
+        const client = {
+            emailType: this.state.emailType,
+            id: this.state.id,
+            name: this.state.name,
+            owner: this.state.owner,
+            sold: this.state.sold
+        }
+        return (
+            <div id="actions">
+                <ClientInput inputHandler={this.clientInputHandler} value={this.state.client} names={this.state.data} />
+                <Update inputHandler={this.inputHandler} client={client} emailTypesList={this.getEmailTypesList()} ownersList={this.getOwnersList()} />
+            </div>
+        )
+    }
+}
+
+export default Actions
