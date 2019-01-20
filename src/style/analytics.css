@@ -1,8 +1,17 @@
-#badges {
-    padding: 0 25px;
-    margin-top: 40px;
+#analytics {
+    height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr)
+    grid-template-areas: "b" "c";
+    padding: 50px;
+    padding-bottom: 0;
+}
+
+#badges {
+    grid-area: b;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* margin-top: 20px; */
+    margin-bottom: 30px;
 }
 
 .badge-container {
@@ -13,6 +22,7 @@
 .badge {
     display: grid;
     justify-content: center;
+    justify-self: center;
     align-content: center;
     color: white;
     font-size: 200%;
@@ -23,7 +33,7 @@
 }
 
 .badge-info {
-    font-size: 150%;
+    font-size: 250%;
 }
 
 .badge-label {
@@ -55,10 +65,25 @@
 }
 
 #charts {
+    grid-area: c;
+    min-height: 200px;
     display: grid;
-    grid-template-areas: "c c ." ". t t";
-    /* grid-template-columns: 1fr 1fr; */
-    padding: 50px;
+    grid-template-areas: "c c t" " a p p";
+    grid-column-gap: 10px;
+    grid-row-gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+}
+
+.chart-container {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.chart-table {
+    text-align: center;
 }
 
 #salesByCountry {
@@ -67,4 +92,12 @@
 
 #​TopEmployees {
     grid-area: t;
+}
+
+#past30Sales {
+    grid-area: p;
+}
+
+#clientAcquisition {
+    grid-area: a;
 }

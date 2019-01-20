@@ -18,9 +18,9 @@ class Analytics extends Component {
 
     render() {
 
-        return (<div>
+        return (<div id="analytics">
             <Badges hottestCountry={this.state.data.hottestCountry} emailsSent={this.state.data.emailSent} newClients={this.state.data.newClients} outStandingClients={this.state.data.outStandingClients} />
-            <Charts salesByCountry={this.state.data.salesByCountry} topSellers={this.state.data.topSellers} />
+            <Charts clientAcquisition={this.state.data.clientAcquisition} salesByCountry={this.state.data.salesByCountry} topSellers={this.state.data.topSellers} past30Sales={this.state.data.past30Sales} />
         </div>)
     }
 }
