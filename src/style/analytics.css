@@ -2,6 +2,7 @@
     height: 100%;
     display: grid;
     grid-template-areas: "b" "c";
+    /* grid-template-rows: 1fr 2fr; */
     padding: 50px;
     padding-bottom: 0;
 }
@@ -9,9 +10,10 @@
 #badges {
     grid-area: b;
     display: grid;
+    max-height: 150px;
     grid-template-columns: repeat(4, 1fr);
+    /* max-height: 200px; */
     /* margin-top: 20px; */
-    margin-bottom: 30px;
 }
 
 .badge-container {
@@ -33,12 +35,12 @@
 }
 
 .badge-info {
+    grid-area: i;
     font-size: 250%;
 }
 
 .badge-label {
-    display: grid;
-    align-content: center;
+    grid-area: n;
     font-size: 70%;
     font-weight: bold;
 }
@@ -46,6 +48,7 @@
 .info-container {
     display: grid;
     grid-template-rows: 1fr 1fr;
+    grid-template-areas: "i" "n";
 }
 
 #new-client {
@@ -84,6 +87,14 @@
 
 .chart-table {
     text-align: center;
+}
+
+.chart-table>select {
+    margin-left: 15px;
+    font-weight: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
 }
 
 #salesByCountry {

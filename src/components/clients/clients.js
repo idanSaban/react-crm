@@ -50,15 +50,15 @@ class Clients extends Component {
 
     getTotalPages = () => Math.floor([...this.state.data].length / 20) + 1
 
-    // async getData() {
-    //     const { data } = await axios.get('http://localhost:4200/clients')
-    //     return data
-
-    // }
-    async componentDidMount() {
-        // const response = await this.getData()
+    async getData() {
         const { data } = await axios.get('http://localhost:4200/clients')
-        this.setState({ data })
+        return data
+
+    }
+    componentDidMount = async () => {
+        const response = await this.getData()
+        // const { data } = await axios.get('http://localhost:4200/clients')
+        this.setState({ data: response })
     }
 
     filter = (category, text) => {
@@ -113,7 +113,6 @@ class Clients extends Component {
         }
 
         const response = await axios.put(`http://localhost:4200/client/${this.state.updateId}`, newObj)
-        console.log(response.data)
         const updatedData = await this.getData()
         this.setState({
             showPopUp: false,

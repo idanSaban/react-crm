@@ -61,10 +61,6 @@
     text-transform: capitalize;
 }
 
-.disable {
-    display: none;
-}
-
 .popup-row {
     display: grid;
     grid-template-columns: 1fr 1fr;

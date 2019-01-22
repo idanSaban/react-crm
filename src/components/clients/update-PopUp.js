@@ -46,7 +46,7 @@ class UpdatePopUp extends Component {
     }
     render() {
         return (
-            <div id="pop-up-container" className={!this.props.show ? "disable" : null}>
+            <div id="pop-up-container" >
 
                 <div id="update"  >
 

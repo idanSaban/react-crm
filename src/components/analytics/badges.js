@@ -18,7 +18,6 @@ class Badges extends Component {
                 <Badge icon={mailIcon} text={this.props.emailsSent} label={"Emails Sent"} badge="email-sent" />
                 <Badge icon={outStandingClients} text={this.props.outStandingClients} label={"Outstanding Clients"} badge="outstanding-client" />
                 <Badge icon={countrys} text={this.props.hottestCountry} label={"Hottest Country"} badge="hottest-country" />
-
             </div>
 
 
