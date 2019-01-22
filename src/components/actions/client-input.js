@@ -7,7 +7,7 @@ class ClientInput extends Component {
 
     render() {
         return (
-            <div>
+            <div id="action-client-input">
                 <span>Client: </span>
                 <input list="clients" id="clientInput" value={this.props.value} onChange={this.inputHandler} name="client" />
                 <datalist id="clients" >

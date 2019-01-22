@@ -76,8 +76,15 @@ class Actions extends Component {
         }
         return (
             <div id="actions">
-                <ClientInput inputHandler={this.clientInputHandler} value={this.state.client} names={this.state.data} />
-                <Update inputHandler={this.inputHandler} client={client} emailTypesList={this.getEmailTypesList()} ownersList={this.getOwnersList()} />
+                <div className="action-section">
+                    <h4>Update</h4>
+                    <ClientInput inputHandler={this.clientInputHandler} value={this.state.client} names={this.state.data} />
+                    <Update inputHandler={this.inputHandler} client={client} emailTypesList={this.getEmailTypesList()} ownersList={this.getOwnersList()} />
+                </div>
+                <div className="action-section">
+                    <h4>Add Client</h4>
+                    <AddClient />
+                </div>
             </div>
         )
     }
