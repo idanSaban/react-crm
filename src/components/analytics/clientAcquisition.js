@@ -12,8 +12,7 @@ class ClientAcquisition extends Component {
                 <h4 className="chart-table">Client Acquisition</h4>
                 <ResponsiveContainer width="100%">
                     <PieChart>
-                        <Tooltip></Tooltip>
-                        <LabelList dataKey="name" position="clockWise" />
+                        <Tooltip />
                         <Pie data={data} dataKey="count" cx="50%" cy="50%" outerRadius={50} fill="#427f8f" label />
                     </PieChart>
 
