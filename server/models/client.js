@@ -4,9 +4,9 @@ const Schema = mongoose.Schema
 const clientSchema = new Schema({
     name: String,
     email: String,
-    firstContact: Date,
-    emailType: String,
-    sold: Boolean,
+    firstContact: { type: Date, default: Date() },
+    emailType: { type: String, default: "null" },
+    sold: { type: Boolean, default: false },
     owner: String,
     country: String
 })

@@ -32,7 +32,7 @@ router.post('/client', async function (req, res) {
     const newClient = new Client(req.body)
     await newClient.save()
     console.log(newClient.name)
-    res.send(`new client ${newClient.name} ${newClient.id}`)
+    res.send(newClient)
 })
 
 router.put('/client/:id', async function (req, res) {

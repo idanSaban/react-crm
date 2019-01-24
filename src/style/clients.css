@@ -115,6 +115,7 @@
 }
 
 .table-row {
+    text-transform: capitalize;
     background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: repeat(7, 1fr);

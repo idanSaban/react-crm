@@ -16,6 +16,7 @@ class Analytics extends Component {
         this.setState({ data })
     }
 
+
     render() {
 
         return (<div id="analytics">
