@@ -9,7 +9,7 @@ class TextInputRow extends Component {
             <div className="text-input-row">
                 <span className="label"> {this.props.label}:</span>
 
-                <input type="text" value={this.props.value} onChange={this.props.inputHandler}></input>
+                <input name={this.props.name} type="text" value={this.props.value} onChange={this.props.inputHandler}></input>
 
             </div>
         )
