@@ -4,6 +4,7 @@ import AddClient from './add-client';
 import '../../style/actions.css'
 import ClientInput from './client-input';
 import Axios from 'axios';
+import Loading from '../Loading/loading';
 class Actions extends Component {
 
     constructor() {
@@ -23,9 +24,11 @@ class Actions extends Component {
         }
     }
     localUpdate = (field) => {
-        const client = this.state.data.find(c => c.id === this.state.id)
+        const data = [...this.state.data]
+        const index = data.findIndex(c => c.id === this.state.id)
         const update = field === "sold" ? true : this.state[field]
-        client[field] = update
+        data[index][field] = update
+        this.setState({ data })
     }
 
     capitalize = str => {
@@ -39,10 +42,8 @@ class Actions extends Component {
         if (this.state.id && (this.state.madeChange || field === "sold"))
         {
             let update = field === "sold" ? { sold: true } : { [field]: this.state[field] }
-            console.log('​Actions -> update -> update', update)
-            const response = await Axios.put(`http://localhost:4200/client/${this.state.id}`, update)
+            await Axios.put(`http://localhost:4200/client/${this.state.id}`, update)
             this.localUpdate(field)
-            console.log('​Actions -> update -> response', response)
         } else if (!this.state.id)
         {
             alert("choose user to edit")
@@ -119,19 +120,21 @@ class Actions extends Component {
             owner: this.state.owner,
             sold: this.state.sold
         }
-        return (
-            <div id="actions">
-                <div className="action-section">
-                    <h4>Update</h4>
-                    <ClientInput inputHandler={this.clientInputHandler} value={this.state.client} names={this.state.data} />
-                    <Update update={this.update} inputHandler={this.inputHandler} client={client} emailTypesList={this.getEmailTypesList()} ownersList={this.getOwnersList()} />
-                </div>
-                <div className="action-section">
-                    <h4>Add Client</h4>
-                    <AddClient capitalize={this.capitalize} addClient={this.addClient} />
-                </div>
+
+        return this.state.data.length > 0 ? (<div id="actions">
+            <div className="action-section">
+                <h4>Update</h4>
+                <ClientInput inputHandler={this.clientInputHandler} value={this.state.client} names={this.state.data} />
+                <Update update={this.update} inputHandler={this.inputHandler} client={client} emailTypesList={this.getEmailTypesList()} ownersList={this.getOwnersList()} />
             </div>
-        )
+            <div className="action-section">
+                <h4>Add Client</h4>
+                <AddClient capitalize={this.capitalize} addClient={this.addClient} />
+            </div>
+        </div>
+        ) : (
+                <Loading />
+            )
     }
 }
 

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Badges from './badges';
 import Charts from './charts';
+import Loading from '../Loading/loading';
 
 class Analytics extends Component {
     constructor() {
         super()
         this.state = {
-            data: []
+            data: {}
         }
     }
     async componentDidMount() {
@@ -18,11 +19,14 @@ class Analytics extends Component {
 
 
     render() {
-
-        return (<div id="analytics">
+        console.log('​Analytics -> render -> Object.keys(this.state.data).length > 0', Object.keys(this.state.data).length > 0)
+        return Object.keys(this.state.data).length > 0 ? (<div id="analytics">
             <Badges hottestCountry={this.state.data.hottestCountry} emailsSent={this.state.data.emailSent} newClients={this.state.data.newClients} outStandingClients={this.state.data.outStandingClients} />
-            <Charts clientAcquisition={this.state.data.clientAcquisition} salesByCountry={this.state.data.salesByCountry} topSellers={this.state.data.topSellers} past30Sales={this.state.data.past30Sales} />
-        </div>)
+            <Charts clientAcquisition={this.state.data.clientAcquisition} salesBy={this.state.data.salesBy} topSellers={this.state.data.topSellers} past30Sales={this.state.data.past30Sales} />
+        </div>) :
+            (
+                <Loading />
+            )
     }
 }
 

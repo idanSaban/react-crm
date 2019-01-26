@@ -4,6 +4,7 @@ import ClientsFilter from './clients-filter';
 import UpdatePopUp from './update-PopUp';
 import axios from 'axios'
 import '../../style/clients.css'
+import Loading from '../Loading/loading';
 
 
 class Clients extends Component {
@@ -56,9 +57,8 @@ class Clients extends Component {
 
     }
     componentDidMount = async () => {
-        const response = await this.getData()
-        // const { data } = await axios.get('http://localhost:4200/clients')
-        this.setState({ data: response })
+        const data = await this.getData()
+        this.setState({ data })
     }
 
     filter = (category, text) => {
@@ -106,17 +106,18 @@ class Clients extends Component {
         {
             newObj.name = `${this.state.name} ${obj.surname}`
         }
-
         if (obj.country !== "")
         {
             newObj.country = obj.country
         }
-
         const response = await axios.put(`http://localhost:4200/client/${this.state.updateId}`, newObj)
-        const updatedData = await this.getData()
+
+        //update local data :
+        const data = [...this.state.data]
+        const index = data.findIndex(c => c._id === response.data._id)
+        data[index] = response.data
         this.setState({
-            showPopUp: false,
-            data: updatedData
+            data
         })
 
     }
@@ -137,13 +138,17 @@ class Clients extends Component {
         dataToDisplay = dataToDisplay.splice(firstItem, 20)
 
 
-        return (
+        return this.state.data.length > 0 ? (
             <div id="clients" >
                 <ClientsFilter nextPage={this.nextPage} filter={this.filter} previousPage={this.previousPage} currentPage={this.state.currentPage} totalPages={this.getTotalPages()} filterCategory={this.state.filterCategory} filterText={this.state.filterText} />
                 <ClientsTable data={dataToDisplay} update={this.update} />
                 {this.state.showPopUp && <UpdatePopUp name={this.state.name} surname={this.state.surname} country={this.state.country} show={this.state.showPopUp} clearUpdate={this.clearUpdate} submitUpdate={this.submitUpdate} />}
             </div>
-        )
+        ) :
+            (
+                <Loading />
+            )
+
     }
 
 
