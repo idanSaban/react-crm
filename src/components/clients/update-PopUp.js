@@ -46,7 +46,7 @@ class UpdatePopUp extends Component {
     }
     render() {
         return (
-            <div id="pop-up-container" >
+            <div id="pop-up-container"  >
 
                 <div id="update"  >
 

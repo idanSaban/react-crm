@@ -8,10 +8,10 @@ class ClientsTable extends Component {
             return <TableRow key={c._id} update={this.props.update} data={c} />
         })
         return (
-            <div>
-                <TableHeader />
+            <div id="table" >
+                < TableHeader />
                 {dataToDisplay}
-            </div>
+            </div >
         )
     }
 }

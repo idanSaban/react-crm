@@ -9,8 +9,8 @@ class ClientInput extends Component {
         return (
             <div id="action-client-input">
                 <span>Client: </span>
-                <input list="clients" id="clientInput" value={this.props.value} onChange={this.inputHandler} name="client" />
-                <datalist id="clients" >
+                <input list="clients-datalist" id="clientInput" value={this.props.value} onChange={this.inputHandler} name="client" />
+                <datalist id="clients-datalist" >
 
                     {this.props.names.map(c => {
                         return (

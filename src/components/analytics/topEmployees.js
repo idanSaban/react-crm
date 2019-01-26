@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { XAxis, YAxis, CartesianGrid, ComposedChart, Bar, ResponsiveContainer } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, BarChart, Bar, ResponsiveContainer, Tooltip } from 'recharts';
+
 
 class TopEmployees extends Component {
     render() {
@@ -8,15 +9,16 @@ class TopEmployees extends Component {
             <div id="​TopEmployees" className="chart-container">
                 <h4 className="chart-table">Top Employees</h4>
                 <ResponsiveContainer >
-                    <ComposedChart
-                        layout="vertical"
+                    <BarChart
                         data={data}
                         margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
                         <CartesianGrid />
-                        <XAxis type="number" />
-                        <YAxis dataKey="seller" type="category" />
-                        <Bar dataKey="count" barSize={20} fill='#4f9b4f' />
-                    </ComposedChart>
+                        <Tooltip />
+
+                        <XAxis dataKey="seller" type="category" />
+                        <YAxis type="number" />
+                        <Bar dataKey="count" barSize={50} fill='#086788' />
+                    </BarChart>
                 </ResponsiveContainer>
             </div>
         )

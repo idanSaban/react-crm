@@ -14,7 +14,7 @@ class Past30Sales extends Component {
                         <XAxis dataKey="date" />
                         <YAxis />
                         <Tooltip />
-                        <Line dataKey="count" stroke="#a52a2a" />
+                        <Line dataKey="count" type="natural" strokeWidth={2} stroke="#086788" />
                     </LineChart>
                 </ResponsiveContainer>
 

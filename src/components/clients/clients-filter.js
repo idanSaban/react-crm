@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa';
 
 class ClientsFilter extends Component {
 
@@ -21,11 +22,11 @@ class ClientsFilter extends Component {
 
                 <input placeholder="filter by" id="text-input" name="text" type="text" onChange={this.inputHandler} value={this.props.filterText} />
 
-                <span id="p" className="btn" onClick={this.props.previousPage}> {"<"} </span>
+                <span id="p" className="btn" onClick={this.props.previousPage}> <FaChevronCircleLeft /> </span>
                 <span id="current-page">
                     {this.props.currentPage + 1}/{this.props.totalPages}
                 </span>
-                <span id="n" className="btn" onClick={this.props.nextPage}>{">"}</span>
+                <span id="n" className="btn" onClick={this.props.nextPage}><FaChevronCircleRight /></span>
             </div>
         )
     }
