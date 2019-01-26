@@ -29,22 +29,22 @@ class AnalyticsCalculator {
 
         return sellers.splice(0, 3)
     }
-    getSalesByCountry() {
-        const countrys = {}
+    getSalesBy(key) {
+        const output = {}
         this.data.forEach(c => {
             // console.log(c.country)
-            if (countrys[c.country])
+            if (output[c[key]])
             {
-                countrys[c.country]++
+                output[c[key]]++
             } else
             {
-                countrys[c.country] = 1
+                output[c[key]] = 1
             }
         })
-        return Object.keys(countrys).map(c => { return { name: c, count: countrys[c] } })
+        return Object.keys(output).map(c => { return { name: c, count: output[c] } })
     }
     getHottestCountry() {
-        const countrys = this.getSalesByCountry()
+        const countrys = this.getSalesBy("country")
         let hottest = {
             country: "",
             count: 0
@@ -74,7 +74,7 @@ class AnalyticsCalculator {
         const clients = this.data
         const dates = {}
         clients.forEach(c => {
-            const firstContact = moment(c.firstContact)//.format("MM-DD-YYYY")
+            const firstContact = moment(c.firstContact).format("MM-DD-YYYY")
             if (today.diff(firstContact, 'days') < 31)
             {
                 if (dates[firstContact])
@@ -122,20 +122,42 @@ class AnalyticsCalculator {
         })
         return clientAcquisition
     }
+    getSalesByMonths() {
+        const output = {}
+        this.data.forEach(c => {
+            const date = moment(c.firstContact).format("M")
+            if (output[date])
+            {
+                output[date]++
+            } else
+            {
+                output[date] = 1
+            }
+        })
+        console.log('​AnalyticsCalculator -> getSalesByMonths -> output', output)
+        return Object.keys(output).map(c => { return { name: moment(c).format("MMM"), count: output[c] } })
 
-    is(something) {
-        const clients = this.data
-        return clients.filter(c => c[something]).length
+
     }
+
+    // howManyIs(something) {
+    //     const clients = 
+    //     return clients
+    // }
 
     getAnalytics() {
         const analytics = {}
         analytics.hottestCountry = this.getHottestCountry()
         analytics.topSellers = this.getTopSellers()
         analytics.newClients = this.getNewClients()
-        analytics.emailSent = this.is("emailType")//this.getNullEmailTypeClients()
-        analytics.outStandingClients = this.is("sold") //this.getOutStandingClients()
-        analytics.salesByCountry = this.getSalesByCountry()
+        analytics.emailSent = this.data.filter(c => c["emailType"] != null).length//this.getNullEmailTypeClients()
+        analytics.outStandingClients = this.data.filter(c => !c["sold"]).length //this.getOutStandingClients()
+        analytics.salesBy = {
+            country: this.getSalesBy("country"),
+            owner: this.getSalesBy("owner"),
+            emailType: this.getSalesBy("emailType"),
+            month: this.getSalesByMonths()
+        }
         analytics.past30Sales = this.getPast30Sales()
         analytics.clientAcquisition = this.getClientAcquisition()
         return analytics
