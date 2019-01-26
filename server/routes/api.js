@@ -38,7 +38,7 @@ router.post('/client', async function (req, res) {
 router.put('/client/:id', async function (req, res) {
     const updatedClient = await Client.findByIdAndUpdate(req.params.id, req.body, { new: true })
     console.log(updatedClient)
-    res.send(`updated ${updatedClient.name} ${updatedClient.id}`)
+    res.send(updatedClient)
 })
 
 router.get('/analytics', async function (req, res) {
