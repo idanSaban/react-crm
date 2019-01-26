@@ -15,7 +15,7 @@ class ClientsFilter extends Component {
                 <select id="category-select" name="category" onChange={this.selectHandler}>
                     <option value="name">Name</option>
                     <option value="country">Country</option>
-                    <option value="email">Email</option>
+                    <option value="emailType">Email Type</option>
                     <option value="owner">Owner</option>
                     <option value="sold">Sold</option>
                 </select>

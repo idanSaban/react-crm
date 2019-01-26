@@ -130,7 +130,7 @@ class Clients extends Component {
         if (filter || filterCategory === "sold")
         {
             dataToDisplay = dataToDisplay.filter(c => {
-                return filterCategory !== "sold" ? c[filterCategory].toLowerCase().match(filterText.toLowerCase()) : c[filterCategory]
+                return filterCategory !== "sold" ? String(c[filterCategory]).toLowerCase().match(filterText.toLowerCase()) : c[filterCategory]
             })
         }
 
