@@ -100,7 +100,7 @@ class Actions extends Component {
     getEmailTypesList() {
         let emailTypes = {}
         this.state.data.forEach(c => emailTypes[c.emailType] = null)
-        return Object.keys(emailTypes).sort()
+        return Object.keys(emailTypes).filter(c => c !== "null").sort()
     }
     addClient = async (client) => {
         const response = await Axios.post("http://localhost:4200/client", client)

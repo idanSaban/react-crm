@@ -4,8 +4,9 @@
 }
 
 #table {
-    max-width: 800px;
-    justify-self: center;
+    /* max-width: 800px; */
+    /* justify-self: center; */
+    padding: 0 50px;
     margin-bottom: 50px;
 }
 
@@ -94,6 +95,12 @@
 .btn {
     cursor: pointer;
     font-weight: 500;
+}
+
+#p, #n, #current-page {
+    display: grid;
+    justify-content: right;
+    align-content: center;
 }
 
 #p {
