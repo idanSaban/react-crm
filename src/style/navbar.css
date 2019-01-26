@@ -1,5 +1,6 @@
 #navbar {
-    background-color: rgb(19, 18, 18);
+    /* background-color: rgb(19, 18, 18); */
+    background-color: #333333;
     height: 50px;
 }
 
@@ -14,9 +15,11 @@
 }
 
 .nav-button:hover {
-    background-color: rgb(44, 44, 44);
+    /* background-color: rgb(44, 44, 44); */
+    background-color: #086788;
 }
 
 .current-page {
-    background-color: rgb(44, 44, 44);
+    /* background-color: rgb(44, 44, 44); */
+    background-color: #086788;
 }

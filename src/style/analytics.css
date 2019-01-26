@@ -1,8 +1,7 @@
 #analytics {
-    height: 100%;
+    /* height: 100vh; */
     display: grid;
     grid-template-areas: "b" "c";
-    /* grid-template-rows: 1fr 2fr; */
     padding: 50px;
     padding-bottom: 0;
 }
@@ -13,7 +12,7 @@
     max-height: 150px;
     grid-template-columns: repeat(4, 1fr);
     /* max-height: 200px; */
-    /* margin-top: 20px; */
+    margin-bottom: 50px;
 }
 
 .badge-container {
@@ -52,19 +51,23 @@
 }
 
 #new-client {
-    background-color: rgb(79, 155, 79);
+    background-color: #086788;
+    /* background-color: rgb(79, 155, 79); */
 }
 
 #email-sent {
-    background-color: rgb(66, 127, 143);
+    background-color: #086788;
+    /* background-color: rgb(66, 127, 143); */
 }
 
 #outstanding-client {
-    background-color: rgb(165, 42, 42);
+    background-color: #086788;
+    /* background-color: rgb(165, 42, 42); */
 }
 
 #hottest-country {
-    background-color: rgb(255, 196, 0);
+    background-color: #086788;
+    /* background-color: rgb(255, 196, 0); */
 }
 
 #charts {
@@ -73,7 +76,7 @@
     display: grid;
     grid-template-areas: "c c t" " a p p";
     grid-column-gap: 10px;
-    grid-row-gap: 30px;
+    grid-row-gap: 50px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-content: center;

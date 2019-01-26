@@ -1,14 +1,22 @@
 #clients {
-    padding: 50px;
+    display: grid;
+    justify-content: center
+}
+
+#table {
+    max-width: 800px;
+    justify-self: center;
+    margin-bottom: 50px;
 }
 
 #table-header {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 2fr) 1fr 1fr 2fr;
     align-content: center;
     padding: 4px;
     height: 30px;
-    background-color: rgb(69, 108, 194);
+    background-color: #086788;
+    color: white;
     box-shadow: 1px 2px 2px rgb(66, 65, 65);
     margin-bottom: 3px;
 }
@@ -16,9 +24,10 @@
 #clientsFilter {
     display: grid;
     grid-template-columns: 2fr 2fr 7fr 1fr 1fr 1fr;
-    margin-bottom: 10px;
+    padding: 50px;
     grid-template-areas: "i s . p c n";
     height: 25px;
+    color: #333333;
 }
 
 #pop-up-container {
@@ -32,7 +41,8 @@
 
 #update {
     text-align: center;
-    background-color: rgb(19, 18, 18);
+    background-color: #333333;
+    /* background-color: rgb(19, 18, 18); */
     box-shadow: 3px 3px 3px rgb(0, 0, 0);
     position: absolute;
     top: 25%;
@@ -71,7 +81,7 @@
 
 .submit {
     box-shadow: 1px 1px 2px rgb(2, 1, 24);
-    background-color: rgb(65, 86, 104);
+    background-color: #086788;
     margin: 15px 30%;
     padding: 10px;
     cursor: pointer;
@@ -118,9 +128,14 @@
     text-transform: capitalize;
     background-color: rgb(255, 255, 255);
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    align-content: center;
+    grid-template-columns: repeat(4, 2fr) 1fr 1fr 2fr;
+    /* grid-template-columns: repeat(7, 1fr); */
     border-bottom: 1px solid rgb(180, 178, 178);
-    padding: 10px;
     cursor: pointer;
+    font-size: 90%;
+}
+
+.row-col {
+    padding: 10px;
+    /* padding: 3px; */
 }
