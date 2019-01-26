@@ -99,20 +99,22 @@
 
 #p, #n, #current-page {
     display: grid;
-    justify-content: right;
     align-content: center;
 }
 
 #p {
     grid-area: p;
+    justify-content: left;
 }
 
 #n {
     grid-area: n;
+    justify-content: right;
 }
 
 #current-page {
     grid-area: c;
+    justify-content: center;
 }
 
 #text-input, #category-select {
