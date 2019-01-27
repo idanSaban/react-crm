@@ -49,7 +49,6 @@ class AnalyticsCalculator {
             country: "",
             count: 0
         }
-
         for (let i of countrys)
         {
             if (i.count > hottest.count)
@@ -58,7 +57,6 @@ class AnalyticsCalculator {
                 hottest.count = i.count
             }
         }
-
         return hottest.country
     }
 
@@ -139,11 +137,6 @@ class AnalyticsCalculator {
 
 
     }
-
-    // howManyIs(something) {
-    //     const clients = 
-    //     return clients
-    // }
 
     getAnalytics() {
         const analytics = {}

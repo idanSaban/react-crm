@@ -16,6 +16,9 @@ class NavBar extends Component {
 
         return (
             <div id="navbar">
+                <Link to="/">
+                    <span id="logo" >Company</span>
+                </Link>
                 {buttons}
             </div>
         )

@@ -4,12 +4,24 @@
     height: 50px;
 }
 
+#logo {
+    float: left;
+    color: white;
+    /* color: #086788; */
+    margin-left: 10px;
+    font-size: 150%;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
 .nav-button {
     color: white;
     display: grid;
     align-content: center;
     justify-content: center;
-    float: left;
+    float: right;
     width: 100px;
     height: 100%;
 }

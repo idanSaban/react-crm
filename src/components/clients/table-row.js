@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-import { IoMdRemove } from "react-icons/io";
-import { MdCheck } from "react-icons/md";
+
 import { GoCheck, GoDash } from "react-icons/go";
 
 class TableRow extends Component {
