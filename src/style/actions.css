@@ -8,7 +8,7 @@
 
 .action-section {
     max-width: 650px;
-    font-size: 80%;
+    font-size: 70%;
     padding: 30px;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -21,7 +21,7 @@
     grid-template-columns: 1fr 1fr 3fr;
     align-content: center;
     padding: 5px;
-    font-size: 180%;
+    font-size: 150%;
     margin-bottom: 25px;
 }
 
@@ -88,7 +88,7 @@
     border-bottom: 1px solid #333333;
     justify-self: end;
     min-width: 150px;
-    padding: 2px;
+    padding: 5px 0px;
     border-bottom-right-radius: 5px;
 }
 

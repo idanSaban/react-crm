@@ -7,13 +7,16 @@
 #logo {
     float: left;
     color: white;
-    /* color: #086788; */
     margin-left: 10px;
     font-size: 150%;
     display: grid;
     align-content: center;
     justify-content: center;
     height: 100%;
+}
+
+#logo:hover {
+    text-shadow: 1px 1px 2px #086788;
 }
 
 #nav-buttons {
