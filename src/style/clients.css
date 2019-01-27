@@ -24,7 +24,7 @@
 #clientsFilter {
     display: grid;
     grid-template-columns: 2fr 2fr 7fr 1fr 1fr 1fr;
-    padding: 50px;
+    padding: 20px 50px;
     grid-template-areas: "i s . p c n";
     height: 25px;
     color: #333333;
