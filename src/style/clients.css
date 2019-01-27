@@ -4,13 +4,12 @@
 }
 
 #table {
-    /* max-width: 800px; */
-    /* justify-self: center; */
     padding: 0 50px;
     margin-bottom: 50px;
 }
 
 #table-header {
+    text-align: center;
     display: grid;
     grid-template-columns: repeat(4, 2fr) 1fr 1fr 2fr;
     align-content: center;
@@ -41,16 +40,16 @@
 }
 
 #update {
+    font-size: 80%;
     text-align: center;
     background-color: #333333;
-    /* background-color: rgb(19, 18, 18); */
     box-shadow: 3px 3px 3px rgb(0, 0, 0);
     position: absolute;
     top: 25%;
     left: 25%;
     padding: 10px;
     color: rgb(190, 190, 190);
-    font-size: 120%
+    border-radius: 1%;
 }
 
 .close-popup {
@@ -63,11 +62,12 @@
     color: black;
     background-color: white;
     cursor: pointer;
+    border-radius: 5%;
 }
 
 #update input {
     border: 0;
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 10px;
     text-transform: capitalize;
 }
@@ -76,11 +76,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0px 20px 10px 20px;
-    align-content: center;
+    align-items: center;
     text-align: left;
 }
 
 .submit {
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-bottom-right-radius: 5px;
     box-shadow: 1px 1px 2px rgb(2, 1, 24);
     background-color: #086788;
     margin: 15px 30%;
@@ -138,13 +141,12 @@
     background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: repeat(4, 2fr) 1fr 1fr 2fr;
-    /* grid-template-columns: repeat(7, 1fr); */
     border-bottom: 1px solid rgb(180, 178, 178);
     cursor: pointer;
-    font-size: 90%;
+    font-size: 80%;
 }
 
 .row-col {
-    padding: 10px;
-    /* padding: 3px; */
+    padding: 5px;
+    text-align: center;
 }

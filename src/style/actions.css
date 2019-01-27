@@ -2,12 +2,13 @@
     padding: 50px;
     display: grid;
     justify-content: center;
-    grid-gap: 50px;
+    grid-gap: 20px;
     grid-template-areas: "." ".";
 }
 
 .action-section {
-    max-width: 800px;
+    max-width: 650px;
+    font-size: 80%;
     padding: 30px;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -88,7 +89,7 @@
     justify-self: end;
     min-width: 150px;
     padding: 2px;
-    borxder-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .button:active {

@@ -16,12 +16,17 @@
     height: 100%;
 }
 
+#nav-buttons {
+    float: right;
+    height: 100%;
+}
+
 .nav-button {
+    float: left;
     color: white;
     display: grid;
     align-content: center;
     justify-content: center;
-    float: right;
     width: 100px;
     height: 100%;
 }
