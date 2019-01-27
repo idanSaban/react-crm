@@ -32,8 +32,6 @@ class ClientAcquisition extends Component {
                     <PieChart>
                         <Tooltip />
                         <Pie data={data} dataKey="count" cx="50%" cy="50%" outerRadius={50} fill="#086788" label>
-
-                            {/* {data.map((e, index) => <Cell key={index} />)} */}
                         </Pie>
 
                     </PieChart>
