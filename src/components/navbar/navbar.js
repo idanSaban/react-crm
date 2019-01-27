@@ -19,7 +19,9 @@ class NavBar extends Component {
                 <Link to="/">
                     <span id="logo" >Company</span>
                 </Link>
-                {buttons}
+                <div id="nav-buttons">
+                    {buttons}
+                </div>
             </div>
         )
     }
