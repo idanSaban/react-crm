@@ -22,9 +22,9 @@ class Clients extends Component {
         }
     }
 
-    nextPage = () => {
-        let currentPage = this.state.currentPage
-        if (currentPage < this.getTotalPages() - 1)
+    nextPage = totalPages => {
+        let currentPage = this.state.currentPage + 1
+        if (currentPage < totalPages)
         {
             currentPage++
             this.setState({ currentPage })
@@ -48,12 +48,11 @@ class Clients extends Component {
         }
     }
 
-    getTotalPages = () => Math.floor([...this.state.data].length / 20) + 1
+    // getTotalPages = () => Math.floor([...this.state.data].length / 20) + 1
 
     async getData() {
         const { data } = await axios.get('http://localhost:4200/clients')
         return data
-
     }
 
     componentDidMount = async () => {
@@ -72,7 +71,8 @@ class Clients extends Component {
         }
         this.setState({
             filterCategory: category,
-            filterText: text
+            filterText: text,
+            currentPage: 0
         })
     }
 
@@ -132,13 +132,14 @@ class Clients extends Component {
                 return filterCategory !== "sold" ? String(c[filterCategory]).toLowerCase().match(filterText.toLowerCase()) : c[filterCategory]
             })
         }
-        const totalPages = dataToDisplay.length
+
+        const totalPages = Math.ceil(dataToDisplay.length / 20)
         const firstItem = this.state.currentPage * 20
         dataToDisplay = dataToDisplay.splice(firstItem, 20)
 
         return this.state.data.length > 0 ? (
             <div id="clients" >
-                <ClientsFilter nextPage={this.nextPage} filter={this.filter} previousPage={this.previousPage} currentPage={this.state.currentPage} totalPages={Math.floor(totalPages / 20) + 1} filterCategory={this.state.filterCategory} filterText={this.state.filterText} />
+                <ClientsFilter nextPage={this.nextPage} filter={this.filter} previousPage={this.previousPage} currentPage={this.state.currentPage} totalPages={totalPages} filterCategory={this.state.filterCategory} filterText={this.state.filterText} />
                 <ClientsTable data={dataToDisplay} update={this.update} />
                 {this.state.showPopUp && <UpdatePopUp name={this.state.name} surname={this.state.surname} country={this.state.country} show={this.state.showPopUp} clearUpdate={this.clearUpdate} submitUpdate={this.submitUpdate} />}
             </div>

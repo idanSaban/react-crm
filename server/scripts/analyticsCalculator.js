@@ -20,7 +20,7 @@ class AnalyticsCalculator {
 
             }
         })
-        sellers = Object.keys(sellers).map(s => { return { seller: s, count: sellers[s] } })
+        sellers = Object.keys(sellers).map(s => { return { seller: s.split(" ")[0], count: sellers[s] } })
 
 
         sellers.sort(function (a, b) {

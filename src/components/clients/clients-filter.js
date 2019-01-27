@@ -7,7 +7,7 @@ class ClientsFilter extends Component {
     inputHandler = (e) => this.props.filter(this.props.filterCategory, e.target.value)
 
     selectHandler = (e) => this.props.filter(e.target.value, this.props.filterText)
-
+    nextPage = () => this.props.nextPage(this.props.totalPages)
     render() {
 
         return (
@@ -26,7 +26,7 @@ class ClientsFilter extends Component {
                 <span id="current-page">
                     {this.props.currentPage + 1}/{this.props.totalPages}
                 </span>
-                <span id="n" className="btn" onClick={this.props.nextPage}><FaChevronCircleRight /></span>
+                <span id="n" className="btn" onClick={this.nextPage}><FaChevronCircleRight /></span>
             </div>
         )
     }
