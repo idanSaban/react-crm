@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-
 import { GoCheck, GoDash } from "react-icons/go";
 
 class TableRow extends Component {
     update = () => this.props.update(this.props.data._id, this.props.data.name.split(" ")[0], this.props.data.name.split(" ")[1], this.props.data.country)
-
     render() {
         const p = { ...this.props.data }
         if (!p || p === [])

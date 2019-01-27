@@ -6,7 +6,6 @@ import axios from 'axios'
 import '../../style/clients.css'
 import Loading from '../Loading/loading';
 
-
 class Clients extends Component {
     constructor() {
         super()
@@ -20,9 +19,9 @@ class Clients extends Component {
             updateId: "",
             fullName: "",
             country: ""
-
         }
     }
+
     nextPage = () => {
         let currentPage = this.state.currentPage
         if (currentPage < this.getTotalPages() - 1)
@@ -34,8 +33,8 @@ class Clients extends Component {
         {
             return
         }
-
     }
+
     previousPage = () => {
         let currentPage = this.state.currentPage
         if (currentPage > 0)
@@ -56,6 +55,7 @@ class Clients extends Component {
         return data
 
     }
+
     componentDidMount = async () => {
         const data = await this.getData()
         this.setState({ data })
@@ -119,7 +119,6 @@ class Clients extends Component {
         this.setState({
             data
         })
-
     }
 
     render() {
@@ -133,14 +132,13 @@ class Clients extends Component {
                 return filterCategory !== "sold" ? String(c[filterCategory]).toLowerCase().match(filterText.toLowerCase()) : c[filterCategory]
             })
         }
-
+        const totalPages = dataToDisplay.length
         const firstItem = this.state.currentPage * 20
         dataToDisplay = dataToDisplay.splice(firstItem, 20)
 
-
         return this.state.data.length > 0 ? (
             <div id="clients" >
-                <ClientsFilter nextPage={this.nextPage} filter={this.filter} previousPage={this.previousPage} currentPage={this.state.currentPage} totalPages={this.getTotalPages()} filterCategory={this.state.filterCategory} filterText={this.state.filterText} />
+                <ClientsFilter nextPage={this.nextPage} filter={this.filter} previousPage={this.previousPage} currentPage={this.state.currentPage} totalPages={Math.floor(totalPages / 20) + 1} filterCategory={this.state.filterCategory} filterText={this.state.filterText} />
                 <ClientsTable data={dataToDisplay} update={this.update} />
                 {this.state.showPopUp && <UpdatePopUp name={this.state.name} surname={this.state.surname} country={this.state.country} show={this.state.showPopUp} clearUpdate={this.clearUpdate} submitUpdate={this.submitUpdate} />}
             </div>
@@ -148,9 +146,6 @@ class Clients extends Component {
             (
                 <Loading />
             )
-
     }
-
-
 }
 export default Clients
