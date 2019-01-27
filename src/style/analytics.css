@@ -11,8 +11,6 @@
     display: grid;
     max-height: 150px;
     grid-template-columns: repeat(4, 1fr);
-    /* max-height: 200px; */
-    /* margin-bottom: 50px; */
 }
 
 .badge-container {
@@ -92,16 +90,16 @@
     text-align: center;
 }
 
-.chart-table>select {
-    margin-left: 15px;
-    font-weight: inherit;
-    font-size: inherit;
-    border: none;
-    background: none;
+#salesBy {
+    grid-area: c;
 }
 
-#salesByCountry {
-    grid-area: c;
+#salesBy select {
+    font: inherit;
+    color: inherit;
+    margin-left: 5px;
+    border: none;
+    background: none;
 }
 
 #​TopEmployees {

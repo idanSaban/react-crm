@@ -13,7 +13,7 @@ class SalesBy extends Component {
         const data = this.props.data
 
         return (
-            <div id="salesByCountry" className="chart-container">
+            <div id="salesBy" className="chart-container">
 
                 <h4 className="chart-table">Sales By
                     <select onChange={this.selectorHandler} >
