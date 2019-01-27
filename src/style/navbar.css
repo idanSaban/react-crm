@@ -13,10 +13,7 @@
     align-content: center;
     justify-content: center;
     height: 100%;
-}
-
-#logo:hover {
-    text-shadow: 1px 1px 2px #086788;
+    text-shadow: 2px 1px 2px #086788;
 }
 
 #nav-buttons {
