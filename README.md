@@ -1,3 +1,7 @@
+##To Do
+-fix  "Past 30 Days Sales" chart
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
